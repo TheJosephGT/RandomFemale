@@ -17,3 +17,7 @@ data class Picture(
     val medium: String,
     val thumbnail: String
 )
+
+data class results(
+    val results : List<PersonDTO>
+)

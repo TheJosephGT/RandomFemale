@@ -15,10 +15,9 @@ class PersonRepository @Inject constructor(private val api: PersonApi) {
         try{
             emit(Resource.Loading())
 
-            val response = api.getRandomUsers("female", 3, 10, "abc")
-            val person = response.results
+            val person = api.getPersons()
 
-            emit(Resource.Success(person))
+            emit(Resource.Success(person.results))
         }catch (e: HttpException){
             emit(Resource.Error(e.message ?: "Error HTTP"))
 
